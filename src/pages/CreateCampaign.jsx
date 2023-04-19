@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 
-import { useStateContext } from '../context/index';
+import { useStateContext } from '../context';
 import { money } from '../assets';
 import { CustomButton, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
@@ -26,7 +26,7 @@ const CreateCampaign = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("form", form)
     checkIfImage(form.image, async (exists) => {
       if(exists) {
         setIsLoading(true)
